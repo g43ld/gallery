@@ -1,17 +1,21 @@
+@font-face {
+  font-family: "Glitch Goblin";
+  src: url("./assets/fonts/glitch_goblin/GlitchGoblin.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   color-scheme: light dark;
   --color-bg: light-dark(#faf8f5, #0b0c0e);
   --color-fg: light-dark(#1a1a1a, #e9e7e1);
   --color-fg-muted: light-dark(#5a5854, rgb(233 231 225 / 62%));
   --color-rule: light-dark(rgb(26 26 26 / 14%), rgb(233 231 225 / 14%));
-  --color-accent: light-dark(#c73e3a, #c85a52);
   --font-serif: Georgia, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     monospace;
   --gutter: clamp(1.25rem, 5vw, 2.75rem);
   --section-y: clamp(4.5rem, 10vw, 6.875rem);
   --width-wide: 72.5rem;
-  --width-prose: 40rem;
 }
 
 *,
@@ -46,24 +50,20 @@ body {
 }
 
 .page-header {
-  padding-block: clamp(3rem, 8vw, 6rem) 2rem;
+  padding-block: clamp(1.5rem, 4vw, 3rem) 2rem;
   border-bottom: 1px solid var(--color-rule);
 }
 
-.eyebrow,
 figcaption {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-}
-
-.eyebrow {
-  color: var(--color-accent);
 }
 
 h1 {
   margin-top: 1rem;
+  font-family: "Glitch Goblin", var(--font-serif);
   font-size: clamp(2.125rem, 4.4vw, 3.375rem);
   font-weight: 500;
   line-height: 1.15;
@@ -71,10 +71,9 @@ h1 {
 }
 
 .lede {
-  max-width: var(--width-prose);
   margin-top: 1.5rem;
   color: var(--color-fg-muted);
-  font-size: 1.0625rem;
+  font-family: var(--font-mono);
 }
 
 .shader-gallery {
@@ -86,7 +85,6 @@ h1 {
 
 .shader-artwork {
   min-width: 0;
-  text-align: center;
 }
 
 .shader-artwork__canvas {
@@ -100,8 +98,23 @@ h1 {
 }
 
 figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 300px;
   margin-top: 0.75rem;
+  margin-inline: auto;
   color: var(--color-fg-muted);
+  text-align: left;
+}
+
+figcaption a {
+  flex: none;
+  color: inherit;
+  letter-spacing: normal;
+  text-transform: none;
 }
 
 @media (max-width: 48rem) {
@@ -113,14 +126,5 @@ figcaption {
 @media (max-width: 32rem) {
   .shader-gallery {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
   }
 }
