@@ -29,7 +29,8 @@
 }
 
 html {
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image: url("./assets/asfalt-light.png");
   color: var(--color-fg);
 }
 
